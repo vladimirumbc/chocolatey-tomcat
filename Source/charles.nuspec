@@ -15,7 +15,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>https://pbs.twimg.com/profile_images/183591433/charles_icon_bigger.png</iconUrl>
     <releaseNotes>https://www.charlesproxy.com/documentation/version-history/</releaseNotes>
-    <projectSourceUrl>https://github.com/kevnord/CharlesChocolateyPackage</projectSourceUrl>
+    <packageSourceUrl>https://github.com/kevnord/CharlesChocolateyPackage</packageSourceUrl>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
