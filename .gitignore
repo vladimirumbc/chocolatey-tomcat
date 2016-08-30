@@ -1,2 +1,3 @@
 # Pack Results (packages)
 *.nupkg
+.build
