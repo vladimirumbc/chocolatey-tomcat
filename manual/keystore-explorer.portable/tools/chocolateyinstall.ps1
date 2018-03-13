@@ -1,6 +1,8 @@
 ﻿$ErrorActionPreference = 'Stop';
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url = 'https://github.com/kaikramer/keystore-explorer/releases/download/v5.3.2/kse-532.zip'
+$shortVersion = $env:ChocolateyPackageVersion.Replace('.', '')
+$url = "https://github.com/kaikramer/keystore-explorer/releases/download/v$env:ChocolateyPackageVersion/kse-$shortVersion.zip"
+
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
@@ -11,3 +13,16 @@ $packageArgs = @{
 }
 
 Install-ChocolateyZipPackage @packageArgs
+
+if (Test-ProcessAdminRights)
+{
+    $specialFolder = [Environment+SpecialFolder]::CommonPrograms
+}
+else
+{
+    $specialFolder = [Environment+SpecialFolder]::Programs
+}
+
+$exePath = Join-Path -Path $toolsDir -ChildPath "kse-$shortVersion" |  Join-Path -ChildPath 'kse.exe'
+$linkPath = [Environment]::GetFolderPath($specialFolder) | Join-Path -ChildPath 'KeyStore Explorer.lnk'
+Install-ChocolateyShortcut -ShortcutFilePath $linkPath -TargetPath $exePath
