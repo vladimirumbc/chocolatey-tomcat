@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
+    <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>typora</id>
-    <title>Typora</title>
     <version>0.9.47-beta</version>
-    <authors>Joseph Benden</authors>
+    <packageSourceUrl>https://github.com/jbenden/chocolatey-packages/tree/master/typora</packageSourceUrl>
     <owners>jbenden</owners>
+    <!-- ============================== -->
+
+    <!-- == SOFTWARE SPECIFIC SECTION == -->
+    <title>Typora</title>
+    <authors>Joseph Benden</authors>
     <summary>A decent markdown editor finally available on Windows</summary>
     <description>
 Typora will give you a seamless experience as both a reader and a writer. It removes the preview window, mode switcher, syntax symbols of markdown source code, and all other unnecessary distractions. Replace them with a real live preview feature to help you concentrate the content itself.
@@ -21,7 +27,8 @@ Typora will give you a seamless experience as both a reader and a writer. It rem
     <releaseNotes>https://typora.io/windows/dev_release.html</releaseNotes>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <iconUrl>http://cdn.rawgit.com/jbenden/chocolatey-packages/master/icons/typora.png</iconUrl>
-    <packageSourceUrl>https://github.com/jbenden/chocolatey-packages/tree/master/typora</packageSourceUrl>
+    <!-- =============================== -->
+
     <dependencies>
       <dependency id="chocolatey-core.extension" version="1.1.0" />
     </dependencies>
