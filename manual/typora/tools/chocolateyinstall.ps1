@@ -1,4 +1,4 @@
-﻿$ErrorActionPreference = 'Stop';
+$ErrorActionPreference = 'Stop';
 
 $packageName= 'typora'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"

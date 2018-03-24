@@ -1,4 +1,4 @@
-﻿$ErrorActionPreference = 'Stop';
+$ErrorActionPreference = 'Stop';
 
 $packageName = 'typora'
 $softwareName = 'typora*'
