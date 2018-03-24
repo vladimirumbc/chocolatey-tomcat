@@ -5,13 +5,13 @@
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>typora</id>
     <version>0.9.47-beta</version>
-    <packageSourceUrl>https://github.com/jbenden/chocolatey-packages/tree/master/typora</packageSourceUrl>
-    <owners>jbenden</owners>
+    <packageSourceUrl>https://github.com/franklinyu/chocolatey-packages/tree/master/manual/typora</packageSourceUrl>
+    <owners>Joseph Benden, Franklin Yu</owners>
     <!-- ============================== -->
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <title>Typora</title>
-    <authors>Joseph Benden</authors>
+    <authors>Abner Lee</authors>
     <summary>A decent markdown editor finally available on Windows</summary>
     <description>
 Typora will give you a seamless experience as both a reader and a writer. It removes the preview window, mode switcher, syntax symbols of markdown source code, and all other unnecessary distractions. Replace them with a real live preview feature to help you concentrate the content itself.
@@ -23,10 +23,11 @@ Typora will give you a seamless experience as both a reader and a writer. It rem
     <projectUrl>https://typora.io/</projectUrl>
     <tags>typora admin editor text markdown</tags>
     <copyright></copyright>
-    <licenseUrl>https://typora.io/</licenseUrl>
+    <licenseUrl>https://support.typora.io/Privacy-Policy/</licenseUrl>
     <releaseNotes>https://typora.io/windows/dev_release.html</releaseNotes>
+    <bugTrackerUrl>https://github.com/typora/typora-issues/issues</bugTrackerUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <iconUrl>http://cdn.rawgit.com/jbenden/chocolatey-packages/master/icons/typora.png</iconUrl>
+    <iconUrl>http://cdn.rawgit.com/franklinyu/chocolatey-packages/master/icons/typora.png</iconUrl>
     <!-- =============================== -->
 
     <dependencies>
