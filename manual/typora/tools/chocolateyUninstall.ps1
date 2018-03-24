@@ -17,5 +17,5 @@ if ($keys.Count -eq 1) {
   Write-Error "To prevent accidental data loss, no programs will be uninstalled."
   Write-Error "Please alert package maintainer the following keys were matched:"
   $keys | % {Write-Warning "- $_.DisplayName"}
-  throw "Uninstallation failed"
+  throw "Uninstallation failed."
 }
