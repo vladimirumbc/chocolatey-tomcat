@@ -14,9 +14,9 @@ $packageArgs = @{
 
   softwareName  = 'typora*'
 
-  checksum      = '3325C21C361AF64DDACB2416BE46B107441C28F7AFEBF2DFB0FCB45C1B40E489'
+  checksum      = '3625f2c966f6a3ee9cc55473c3467188b2812e95ab0ae236bc71c3d3606a5770'
   checksumType  = 'sha256'
-  checksum64    = '926826D4BC0A04EF1D9E99A03C7E7E154B32AA0AA38204CBB13F0F17454344C8'
+  checksum64    = '4b7b15aa2219a3a60d9f17a5018165dcf9ca6079367ef3fa006d9e700d7a2f8d'
   checksumType64= 'sha256'
 
   validExitCodes= @(0, 3010, 1641)
