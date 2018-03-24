@@ -3,15 +3,13 @@
 [array]$keys = Get-UninstallRegistryKey -SoftwareName 'typora*'
 
 if ($keys.Count -eq 1) {
-  $keys | % {
-    $file = "$($_.UninstallString)"
+  $file = "$($keys[0].UninstallString)"
 
-    Uninstall-ChocolateyPackage -PackageName $env:ChocolateyPackageName `
-                                -FileType exe `
-                                -SilentArgs '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' `
-                                -ValidExitCodes @(0) `
-                                -File "$file"
-  }
+  Uninstall-ChocolateyPackage -PackageName $env:ChocolateyPackageName `
+                              -FileType exe `
+                              -SilentArgs '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' `
+                              -ValidExitCodes @(0) `
+                              -File "$file"
 } elseif ($keys.Count -eq 0) {
   Write-Warning "$env:ChocolateyPackageTitle has already been uninstalled by other means."
 } elseif ($keys.Count -gt 1) {
