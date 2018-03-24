@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>typora</id>
+    <title>Typora</title>
+    <version>0.9.29-beta</version>
+    <authors>Joseph Benden</authors>
+    <owners>jbenden</owners>
+    <summary>A decent markdown editor finally available on Windows</summary>
+    <description>
+Typora will give you a seamless experience as both a reader and a writer. It removes the preview window, mode switcher, syntax symbols of markdown source code, and all other unnecessary distractions. Replace them with a real live preview feature to help you concentrate the content itself.
+
+* Distractions Free
+* Seamless Live Preview
+* What You See Is What You Get
+    </description>
+    <projectUrl>https://typora.io/</projectUrl>
+    <tags>typora admin editor text markdown</tags>
+    <copyright></copyright>
+    <licenseUrl>https://typora.io/</licenseUrl>
+    <releaseNotes>https://typora.io/windows/dev_release.html</releaseNotes>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <iconUrl>http://cdn.rawgit.com/jbenden/chocolatey-packages/master/icons/typora.png</iconUrl>
+    <packageSourceUrl>https://github.com/jbenden/chocolatey-packages/tree/master/typora</packageSourceUrl>
+    <dependencies>
+      <dependency id="chocolatey-core.extension" version="1.1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
