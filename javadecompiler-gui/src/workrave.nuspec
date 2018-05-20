@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>javadecompiler-gui</id>
+    <title>Java Decompiler GUI</title>
+    <version>1.4.0</version>
+    <authors>Emmanuel Dupuy</authors>
+    <owners>Surov Vladimir</owners>
+    <summary>JD (Java Decompiler) is a Decompiler for the Java programming language.</summary>
+    <description>JD (Java Decompiler) is a Decompiler for the Java programming language.</description>
+    <projectUrl>http://jd.benow.ca/</projectUrl>
+    <tags>java decompiler gui</tags>
+    <copyright>2008-2015 Emmanuel Dupuy</copyright>
+    <licenseUrl>http://opensource.org/licenses/GPL-3.0</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>http://jd.benow.ca/img/Icon_java_64.png</iconUrl>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
