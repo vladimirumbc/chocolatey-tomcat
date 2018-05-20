@@ -1,21 +1,14 @@
 ﻿$ErrorActionPreference = 'Stop';
 
-[array]$keys = Get-UninstallRegistryKey -SoftwareName 'typora*'
+$programFiles = [Environment]::GetFolderPath([Environment+SpecialFolder]::ProgramFiles)
+$uninstaller = Join-Path -Path $programFiles -ChildPath Typora | Join-Path -ChildPath unins000.exe
 
-if ($keys.Count -eq 1) {
-  $file = "$($keys[0].UninstallString)"
-
+if (Test-Path -Path $uninstaller) {
   Uninstall-ChocolateyPackage -PackageName $env:ChocolateyPackageName `
                               -FileType exe `
                               -SilentArgs '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' `
                               -ValidExitCodes @(0) `
-                              -File "$file"
-} elseif ($keys.Count -eq 0) {
+                              -File $uninstaller
+} else {
   Write-Warning "$env:ChocolateyPackageTitle has already been uninstalled by other means."
-} elseif ($keys.Count -gt 1) {
-  Write-Warning "$keys.Count matches found!"
-  Write-Warning "To prevent accidental data loss, no programs will be uninstalled."
-  Write-Warning "Please alert package maintainer the following keys were matched:"
-  $keys | % {Write-Warning "- $_.DisplayName"}
-  throw "Uninstallation failed."
 }
