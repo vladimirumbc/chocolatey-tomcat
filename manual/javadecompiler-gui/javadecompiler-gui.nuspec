@@ -3,17 +3,21 @@
   <metadata>
     <id>javadecompiler-gui</id>
     <title>Java Decompiler GUI</title>
-    <version>1.4.0</version>
+    <version>1.4.0.20180520</version>
     <authors>Emmanuel Dupuy</authors>
-    <owners>Surov Vladimir</owners>
+    <owners>Surov Vladimir, Franklin Yu</owners>
     <summary>JD (Java Decompiler) is a Decompiler for the Java programming language.</summary>
-    <description>JD (Java Decompiler) is a Decompiler for the Java programming language.</description>
+    <description>JD (Java Decompiler) is a standalone graphical utility that displays Java source codes of “.class” files. You can browse the reconstructed source code with the JD-GUI for instant access to methods and fields.</description>
     <projectUrl>http://jd.benow.ca/</projectUrl>
     <tags>java decompiler gui</tags>
     <copyright>2008-2015 Emmanuel Dupuy</copyright>
-    <licenseUrl>http://opensource.org/licenses/GPL-3.0</licenseUrl>
+    <licenseUrl>https://opensource.org/licenses/GPL-3.0</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>http://jd.benow.ca/img/Icon_java_64.png</iconUrl>
+    <packageSourceUrl>https://github.com/franklinyu/chocolatey-packages/tree/master/manual/javadecompiler-gui</packageSourceUrl>
+    <projectSourceUrl>https://github.com/java-decompiler/jd-gui</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/java-decompiler/jd-gui/issues</bugTrackerUrl>
+    <releaseNotes>https://github.com/java-decompiler/jd-gui/releases</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

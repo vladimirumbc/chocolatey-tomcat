@@ -8,7 +8,15 @@ $packageArgs = @{
   unzipLocation = $toolsDir
 }
 
-$menuPrograms = [environment]::GetFolderPath([environment+specialfolder]::Programs)
+if (Test-ProcessAdminRights)
+{
+    $specialFolder = [Environment+SpecialFolder]::CommonPrograms
+}
+else
+{
+    $specialFolder = [Environment+SpecialFolder]::Programs
+}
+$menuPrograms = [environment]::GetFolderPath($specialFolder)
 $shotrcutArgs = @{
   shortcutFilePath = "$menuPrograms\Java Decompiler.lnk"
   targetPath       = "$toolsDir\jd-gui-windows-1.4.0\jd-gui.exe"
