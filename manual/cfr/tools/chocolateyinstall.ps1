@@ -6,7 +6,7 @@ $packageArgs = @{
     packageName   = $env:ChocolateyPackageName
     fileFullPath  = $jarPath
     url           = "http://www.benf.org/other/cfr/cfr_$($env:ChocolateyPackageVersion.Replace('.', '_')).jar"
-    checksum      = '4A68B0FE1A4E1EB0061EED4387C3F00FE406C03325AF54E68F803204EE4B7B26'
+    checksum      = 'b66a1e59891a2585885b171b4ec6fcc0e20f0d419e90a153e5c01540bb1cc67f'
     checksumType  = 'sha256'
 }
 Get-ChocolateyWebFile @packageArgs

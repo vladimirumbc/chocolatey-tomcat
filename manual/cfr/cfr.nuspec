@@ -4,7 +4,7 @@
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>cfr</id>
-    <version>0.129</version>
+    <version>0.130</version>
     <packageSourceUrl>https://github.com/franklinyu/chocolatey-packages/tree/master/manual/cfr</packageSourceUrl>
     <owners>Franklin Yu</owners>
     <!-- ============================== -->
