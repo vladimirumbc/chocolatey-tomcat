@@ -4,7 +4,7 @@
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>jadx</id>
-    <version>0.7.1</version>
+    <version>0.7.1.20180627</version>
     <packageSourceUrl>https://github.com/franklinyu/chocolatey-packages/tree/master/manual/jadx</packageSourceUrl>
     <owners>Franklin Yu</owners>
     <!-- ============================== -->

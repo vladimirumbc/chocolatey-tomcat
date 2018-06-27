@@ -6,16 +6,7 @@ if (! (Get-Command -Name New-TemporaryFile -ErrorAction SilentlyContinue))
 {
     function New-TemporaryFile
     {
-        foreach ($i in 1..10)
-        {
-            $name = [Guid]::NewGuid()
-            $tempPath = Join-Path -Path $env:TEMP -ChildPath $name
-            if (! (Test-Path -Path $tempPath -ErrorAction SilentlyContinue))
-            {
-                return $tempPath
-            }
-        }
-        throw 'cannot create temporary path'
+        return [IO.Path]::GetTempFileName()
     }
 }
 
@@ -29,10 +20,12 @@ if (! (Select-String -Path $tempFile -Pattern 64-Bit))
 }
 Remove-Item -Path $tempFile
 
+$versionStr = $env:ChocolateyPackageVersion -replace '^(\d+\.\d+\.\d+).*','$1'
+
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   unzipLocation = $toolsDir
-  url           = "https://github.com/skylot/jadx/releases/download/v$env:ChocolateyPackageVersion/jadx-$env:ChocolateyPackageVersion.zip"
+  url           = "https://github.com/skylot/jadx/releases/download/v$versionStr/jadx-$versionStr.zip"
   checksum      = '1f0431273ad9e56a40fb31ad6c355ccb1da5be74887d8d9fb17995bd7cb06285'
   checksumType  = 'sha256'
 }
