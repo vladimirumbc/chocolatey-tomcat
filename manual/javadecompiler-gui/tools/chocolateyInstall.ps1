@@ -1,4 +1,4 @@
-$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+﻿$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 $packageArgs = @{
   packageName   = 'javadecompiler-gui'
@@ -16,7 +16,7 @@ else
 {
     $specialFolder = [Environment+SpecialFolder]::Programs
 }
-$menuPrograms = [environment]::GetFolderPath($specialFolder)
+$menuPrograms = [Environment]::GetFolderPath($specialFolder)
 $shotrcutArgs = @{
   shortcutFilePath = "$menuPrograms\Java Decompiler.lnk"
   targetPath       = "$toolsDir\jd-gui-windows-1.4.0\jd-gui.exe"
