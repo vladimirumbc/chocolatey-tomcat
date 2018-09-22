@@ -1,12 +1,11 @@
 ﻿$ErrorActionPreference = 'Stop'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $jarPath = Join-Path -Path $toolsDir -ChildPath 'cfr.jar'
-$versionStr = $env:ChocolateyPackageVersion -replace '^(\d+)\.(\d+).*','$1_$2'
 
 $packageArgs = @{
     packageName   = $env:ChocolateyPackageName
     fileFullPath  = $jarPath
-    url           = "http://www.benf.org/other/cfr/cfr_$versionStr.jar"
+    url           = ''
     checksum      = '6e9bba18563f1b18396cde4fcd0bd4a18fcd930c92c44cb665cbc49528c12a90'
     checksumType  = 'sha256'
 }
