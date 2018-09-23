@@ -12,7 +12,7 @@ $packageArgs = @{
 Get-ChocolateyWebFile @packageArgs
 
 [array]$javaCmds = Get-Command -Name java
-if ($javaCmds[0] -eq $null -or $javaCmds[0].CommandType -ne 'Application')
+if ($javaCmds[0].CommandType -ne 'Application')
 {
     throw 'Unexpected Java location'
 }
