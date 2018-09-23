@@ -12,15 +12,13 @@ if (! (Get-Command -Name New-TemporaryFile -ErrorAction SilentlyContinue))
 
 # check Java 64-bit
 $tempFile = New-TemporaryFile
-cmd /c "java -version 2> $tempFile"
+Start-Process -FilePath 'java.exe' -RedirectStandardError $tempFile -ArgumentList '-version' -NoNewWindow -Wait
 if (! (Select-String -Path $tempFile -Pattern 64-Bit))
 {
     Remove-Item -Path $tempFile
     throw 'require 64-bit Java'
 }
 Remove-Item -Path $tempFile
-
-$versionStr = $env:ChocolateyPackageVersion -replace '^(\d+\.\d+\.\d+).*','$1'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
