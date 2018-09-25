@@ -5,8 +5,8 @@ $jarPath = Join-Path -Path $toolsDir -ChildPath 'cfr.jar'
 $packageArgs = @{
     packageName   = $env:ChocolateyPackageName
     fileFullPath  = $jarPath
-    url           = 'http://www.benf.org/other/cfr/cfr_0_132.jar'
-    checksum      = 'e10b1667835cf5b73f09cf37eb122192ce29583c29f5c3a4e134a43e7669f5ba'
+    url           = 'http://www.benf.org/other/cfr/cfr_0_133.jar'
+    checksum      = '0c4fb231158dda6d52f9edc51408c7bafd9437ee3e871715193cd86220a9f440'
     checksumType  = 'sha256'
 }
 Get-ChocolateyWebFile @packageArgs
