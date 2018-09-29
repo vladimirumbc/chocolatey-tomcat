@@ -1,4 +1,4 @@
-﻿$ErrorActionPreference = 'Stop'; # stop on all errors
+$ErrorActionPreference = 'Stop'; # stop on all errors
 
 Uninstall-BinFile -Name jadx
 Uninstall-BinFile -Name jadx-gui

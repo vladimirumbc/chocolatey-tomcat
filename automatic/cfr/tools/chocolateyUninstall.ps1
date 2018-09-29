@@ -1,1 +1,1 @@
-﻿Uninstall-BinFile -Name $env:ChocolateyPackageName
+Uninstall-BinFile -Name $env:ChocolateyPackageName
