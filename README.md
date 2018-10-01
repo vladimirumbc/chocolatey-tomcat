@@ -1,5 +1,7 @@
 # Chocolatey Packages
 
+This project was created from [chocolatey/chocolatey-packages-template](https://github.com/chocolatey/chocolatey-packages-template).
+
 ~~~
 <!-- EDIT ME-->
 
