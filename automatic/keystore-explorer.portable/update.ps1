@@ -16,9 +16,6 @@ function global:au_GetLatest {
 
 function global:au_SearchReplace {
     @{
-        'keystore-explorer.portable.nuspec' = @{
-            '<version>[.\d]+</version>' = '<version>{0}</version>' -f $Latest.Version
-        }
         'tools\chocolateyInstall.ps1' = @{
             '[$]folder\s*=.*' = "`$folder = '{0}'" -f $Latest.Folder
             '(^\s*url\s*)=.*' = "`$1= '{0}'" -f $Latest.Url
