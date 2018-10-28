@@ -2,12 +2,12 @@ $ErrorActionPreference = 'Stop';
 
 $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
-  url            = "https://typora.io/windows/typora-update-ia32-$date.exe"
-  url64bit       = "https://typora.io/windows/typora-update-x64-$date.exe"
+  url            = "https://typora.io/windows/typora-update-ia32-1024.exe"
+  url64bit       = "https://typora.io/windows/typora-update-x64-1024.exe"
 
-  checksum       = '7b78bcff921e3706af69fcca05b71f71f6dd3eaab95c7d82e89f35a6fc1bb9ef'
+  checksum       = '3590569b4346d93947b844dd5402b7d24c777ef2f28f5722877d616d1118f514'
   checksumType   = 'sha256'
-  checksum64     = '6a9126d820ac3840bc57340e346b0e0f30e5d5a8324b60d3cf1207872f0704d6'
+  checksum64     = '02dadb5ab70217d12be64a524162564e8f524d07e2036093adcca21c218a956d'
   checksumType64 = 'sha256'
 
   validExitCodes = @(0, 3010, 1641)
