@@ -1,6 +1,5 @@
 $ErrorActionPreference = 'Stop';
 
-$date = '0912'
 $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
   url            = "https://typora.io/windows/typora-update-ia32-$date.exe"
