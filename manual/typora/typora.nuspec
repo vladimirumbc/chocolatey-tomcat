@@ -27,7 +27,7 @@ Typora will give you a seamless experience as both a reader and a writer. It rem
     <releaseNotes>https://typora.io/windows/dev_release.html</releaseNotes>
     <bugTrackerUrl>https://github.com/typora/typora-issues/issues</bugTrackerUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <iconUrl>https://cdn.rawgit.com/franklinyu/chocolatey-packages/ae5e98b6fbadd83de82b54a52ddfe793c08b037c/icons/typora.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/franklinyu/chocolatey-packages/ae5e98b6fbadd83de82b54a52ddfe793c08b037c/icons/typora.png</iconUrl>
     <!-- =============================== -->
 
     <dependencies>
