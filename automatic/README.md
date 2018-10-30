@@ -14,3 +14,8 @@ To get the packages that implement AU updater run `Get-AUPackages` or `lsau` in 
 
 **NOTE:** Ensure when you are creating packages for AU, you don't use `--auto` as the packaging files should be normal packages. AU doesn't need the tokens to do replacement.
 
+Packages:
+  - [`cfr`](https://chocolatey.org/packages/cfr)
+  - [`jadx`](https://chocolatey.org/packages/jadx)
+  - [`keystore-explorer.portable`](https://chocolatey.org/packages/keystore-explorer.portable)
+  - [`typora`](https://chocolatey.org/packages/typora)
