@@ -4,8 +4,8 @@
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>typora</id>
-    <version>0.9.59</version>
-    <packageSourceUrl>https://github.com/franklinyu/chocolatey-packages/tree/master/manual/typora</packageSourceUrl>
+    <version>0.9.60</version>
+    <packageSourceUrl>https://github.com/franklinyu/chocolatey-packages/tree/master/automatic/typora</packageSourceUrl>
     <owners>Joseph Benden, Franklin Yu</owners>
     <!-- ============================== -->
 
