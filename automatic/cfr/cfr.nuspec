@@ -33,6 +33,6 @@ See project page or [FAQ](http://www.benf.org/other/cfr/faq.html) for more detai
 
   </metadata>
   <files>
-    <file src="tools\*.ps1" target="tools" />
+    <file src="tools\**" target="tools" />
   </files>
 </package>
