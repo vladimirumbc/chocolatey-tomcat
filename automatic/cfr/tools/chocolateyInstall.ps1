@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'Stop'
-$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+$toolsDir = Split-Path -parent $MyInvocation.MyCommand.Definition
 $jarPath = Join-Path -Path $toolsDir -ChildPath 'cfr.jar'
 
 [array]$javaCmds = Get-Command -Name java
