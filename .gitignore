@@ -1,6 +1,7 @@
 # binaries
 *.nupkg
 *.exe
+*.jar
 
 # local files
 update_vars.ps1
