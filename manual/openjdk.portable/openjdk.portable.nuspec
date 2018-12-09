@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- == PACKAGE SPECIFIC SECTION == -->
+    <id>openjdk.portable</id>
+    <version>11.0.1</version>
+    <packageSourceUrl>https://github.com/FranklinYu/chocolatey-packages/tree/master/manual/openjdk.portable</packageSourceUrl>
+    <owners>Franklin Yu</owners>
+    <!-- ============================== -->
+
+    <!-- == SOFTWARE SPECIFIC SECTION == -->
+    <title>OpenJDK (Portable)</title>
+    <authors>Oracle Corporation</authors>
+    <projectUrl>https://openjdk.java.net</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/chocolatey/chocolatey-coreteampackages@9e121a25724d10365d699f0bf4d0d90bcb047019/icons/java.svg</iconUrl>
+    <copyright>© 2018 Oracle Corporation</copyright>
+    <licenseUrl>https://openjdk.java.net/legal/</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <projectSourceUrl>https://hg.openjdk.java.net</projectSourceUrl>
+    <docsUrl>https://docs.oracle.com/en/java/javase/11/</docsUrl>
+    <mailingListUrl>https://mail.openjdk.java.net</mailingListUrl>
+    <bugTrackerUrl>https://bugs.openjdk.java.net</bugTrackerUrl>
+    <tags>OpenJDK Java JVM JDK JRE J2SE compiler SDK Oracle</tags>
+    <summary>OpenJDK is an open source Java Development Kit provided by Oracle Corporation.</summary>
+    <description>OpenJDK is a free and open-source implementation of the Java Platform, Standard Edition.</description>
+    <releaseNotes>https://www.oracle.com/technetwork/java/javase/11u-relnotes-5093844.html</releaseNotes>
+    <!-- =============================== -->      
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
