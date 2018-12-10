@@ -1,22 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>Charles</id>
     <title>Charles Web Debugging Proxy Application</title>
     <version>0.0.0.1</version>
-    <authors>Charles</authors>
-    <owners>kevnord</owners>
+    <authors>XK72</authors>
+    <owners>kevnord, Franklin Yu</owners>
     <summary>Charles Web Debugging Proxy Application</summary>
-    <description>Charles is an HTTP proxy / HTTP monitor / Reverse Proxy that enables a developer to view all of the HTTP and SSL / HTTPS traffic between their machine and the Internet. This includes requests, responses and the HTTP headers (which contain the cookies and caching information).</description>
+    <description>
+Charles is an HTTP proxy / HTTP monitor / Reverse Proxy that enables a developer to view all of the HTTP and SSL / HTTPS traffic between their machine and the Internet.
+This includes requests, responses and the HTTP headers (which contain the cookies and caching information).
+
+Note that this package is for Charles 3. For Charles 4 see [charles4](https://chocolatey.org/packages/charles4).
+    </description>
     <projectUrl>https://www.charlesproxy.com/</projectUrl>
     <tags>charles web debugging proxy admin</tags>
     <licenseUrl>https://www.charlesproxy.com/buy/eula/</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <copyright>XK72 Limited</copyright>
-    <iconUrl>https://pbs.twimg.com/profile_images/183591433/charles_icon_bigger.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/FranklinYu/chocolatey-packages/eb4f1d9399e5f2278a04392375285e96553d4088/icons/charles.png</iconUrl>
     <releaseNotes>https://www.charlesproxy.com/documentation/version-history/</releaseNotes>
-    <packageSourceUrl>https://github.com/kevnord/CharlesChocolateyPackage</packageSourceUrl>
+    <packageSourceUrl>https://github.com/FranklinYu/chocolatey-packages/tree/master/automatic/Charles</packageSourceUrl>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
