@@ -66,7 +66,7 @@ build_script:
 
 artifacts:
 - path: update_info.xml
-- path: Update-AUPackages.md
+- path: Update-Report.md
 - path: au_temp.zip
 
 notifications:
