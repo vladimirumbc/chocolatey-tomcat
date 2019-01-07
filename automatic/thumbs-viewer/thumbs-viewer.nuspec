@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- == PACKAGE SPECIFIC SECTION == -->
+    <id>thumbs-viewer</id>
+    <version>0.0.0.0</version>
+    <packageSourceUrl>https://github.com/FranklinYu/chocolatey-packages/tree/master/automatic/openjdk.portable</packageSourceUrl>
+    <owners>Franklin Yu</owners>
+    <!-- ============================== -->
+
+    <!-- == SOFTWARE SPECIFIC SECTION == -->
+    <title>Thumbs Viewer (Portable)</title>
+    <authors>Eric Kutcher</authors>
+    <projectUrl>https://thumbsviewer.github.io/</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/thumbsviewer/thumbsviewer/53417edb72f00b0c10ff5b01f8f02b87598f7f5a/thumbs_viewer/icon.ico</iconUrl>
+    <copyright>Copyright © 2011-2018 Eric Kutcher</copyright>
+    <licenseUrl>https://www.gnu.org/licenses/gpl.html</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/thumbsviewer/thumbsviewer</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/thumbsviewer/thumbsviewer/issues</bugTrackerUrl>
+    <tags>thumbs-viewer portable</tags>
+    <summary>Extract Windows Thumbs.db database files.</summary>
+    <description>Thumbs Viewer allows you to extract thumbnail images from the `Thumbs.db`, `ehthumbs.db`, `ehthumbs_vista.db`, `Image.db`, `Video.db`, `TVThumb.db`, and `musicThumbs.db` database files found on various Windows operating systems.</description>
+    <releaseNotes>https://github.com/thumbsviewer/thumbsviewer/releases</releaseNotes>
+    <!-- =============================== -->      
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
