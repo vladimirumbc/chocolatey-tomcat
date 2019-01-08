@@ -13,7 +13,7 @@
     <title>Thumbs Viewer (Portable)</title>
     <authors>Eric Kutcher</authors>
     <projectUrl>https://thumbsviewer.github.io/</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/thumbsviewer/thumbsviewer/53417edb72f00b0c10ff5b01f8f02b87598f7f5a/thumbs_viewer/icon.ico</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/FranklinYu/chocolatey-packages/5224a32290f8e11ac3c940b555d3fce258c15d33/icons/thumbs-viewer.png</iconUrl>
     <copyright>Copyright © 2011-2018 Eric Kutcher</copyright>
     <licenseUrl>https://www.gnu.org/licenses/gpl.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
