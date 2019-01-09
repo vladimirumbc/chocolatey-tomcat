@@ -24,6 +24,10 @@
     <description>Thumbs Viewer allows you to extract thumbnail images from the `Thumbs.db`, `ehthumbs.db`, `ehthumbs_vista.db`, `Image.db`, `Video.db`, `TVThumb.db`, and `musicThumbs.db` database files found on various Windows operating systems.</description>
     <releaseNotes>https://github.com/thumbsviewer/thumbsviewer/releases</releaseNotes>
     <!-- =============================== -->      
+
+    <dependencies>
+      <dependency id="vcredist2008" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
