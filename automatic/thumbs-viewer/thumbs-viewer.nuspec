@@ -5,7 +5,7 @@
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>thumbs-viewer</id>
     <version>1.0.2.8</version>
-    <packageSourceUrl>https://github.com/FranklinYu/chocolatey-packages/tree/master/automatic/openjdk.portable</packageSourceUrl>
+    <packageSourceUrl>https://github.com/FranklinYu/chocolatey-packages/tree/master/automatic/thumbs-viewer</packageSourceUrl>
     <owners>Franklin Yu</owners>
     <!-- ============================== -->
 
