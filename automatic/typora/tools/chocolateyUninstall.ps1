@@ -1,4 +1,4 @@
-$ErrorActionPreference = 'Stop';
+﻿$ErrorActionPreference = 'Stop';
 
 $programFiles = [Environment]::GetFolderPath([Environment+SpecialFolder]::ProgramFiles)
 $uninstaller = Join-Path -Path $programFiles -ChildPath Typora | Join-Path -ChildPath unins000.exe

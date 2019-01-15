@@ -1,4 +1,4 @@
-$ErrorActionPreference = 'Stop'
+﻿$ErrorActionPreference = 'Stop'
 
 function global:au_GetLatest {
     $version = (Invoke-RestMethod -Uri 'https://www.charlesproxy.com/latest.do?v=3').Trim()

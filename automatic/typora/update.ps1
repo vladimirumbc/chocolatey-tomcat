@@ -1,4 +1,4 @@
-$ErrorActionPreference = 'Stop'
+﻿$ErrorActionPreference = 'Stop'
 
 function global:au_GetLatest {
     $feed = 'https://www.typora.io/windows/dev_update.xml'

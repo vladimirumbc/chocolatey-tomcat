@@ -1,4 +1,4 @@
-if (Test-ProcessAdminRights)
+﻿if (Test-ProcessAdminRights)
 {
     $specialFolder = [Environment+SpecialFolder]::CommonPrograms
 }
