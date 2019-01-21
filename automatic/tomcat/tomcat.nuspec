@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- == PACKAGE SPECIFIC SECTION == -->
+    <id>tomcat</id>
+    <version>9.0.0</version>
+    <packageSourceUrl>https://github.com/FranklinYu/chocolatey-packages/tree/master/automatic/tomcat</packageSourceUrl>
+    <owners>skyguy94, FranklinYu</owners>
+    <!-- ============================== -->
+
+    <!-- == SOFTWARE SPECIFIC SECTION == -->
+    <title>Apache Tomcat</title>
+    <authors>Apache Software Foundation</authors>
+    <projectUrl>https://tomcat.apache.org</projectUrl>
+    <iconUrl>http://raw.githubusercontent.com/FranklinYu/chocolatey-packages/b2166bf5b07c8a14ca776d25e20eff0ba07eb50c/icons/tomcat.png</iconUrl>
+    <copyright>Copyright © 1999-2019, The Apache Software Foundation</copyright>
+    <licenseUrl>https://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://svn.apache.org/viewvc/tomcat/</projectSourceUrl>
+    <docsUrl>https://tomcat.apache.org/tomcat-9.0-doc/</docsUrl>
+    <mailingListUrl>https://tomcat.apache.org/lists.html</mailingListUrl>
+    <bugTrackerUrl>https://bz.apache.org/bugzilla/</bugTrackerUrl>
+    <tags>tomcat application server apache jsf jsp jdk8</tags>
+    <summary>Application Server. Windows 32 and 64 bit.</summary>
+    <description>Tomcat is a Application Server. It is possible to run Web application ARchive (WAR) files using Tomcat. Apache Tomcat requires a JDK in order to run.</description>
+    <releaseNotes>https://tomcat.apache.org/tomcat-9.0-doc/changelog.html</releaseNotes>
+    <!-- =============================== -->      
+
+    <dependencies>
+      <dependency id="jdk8" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
