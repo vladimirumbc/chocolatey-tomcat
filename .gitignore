@@ -2,6 +2,7 @@
 *.nupkg
 *.exe
 *.jar
+*.zip
 
 # local files
 update_vars.ps1
