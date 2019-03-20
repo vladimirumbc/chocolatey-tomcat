@@ -3,13 +3,13 @@ Verification is intended to assist the Chocolatey moderators and community
 in verifying that this package's contents are trustworthy.
  
 Homepage: https://tomcat.apache.org
-SHA-512 of 32-bit: DEADBEEF
-SHA-512 of 64-bit: BEEFDEAD
+SHA-512 of 32-bit: 8DBECAEC7A9BA413F97C483DDE4B72D8B9252D13E6E960A813F112A14399C083
+SHA-512 of 64-bit: 5DD5048D7AABE24F866A7C87C2C3F6DC95AE40DC7BDA8C0295C0D9D624DB4D3A
 URL of 'LICENSE.txt': https://www.apache.org/licenses/LICENSE-2.0.txt
 Download page: https://tomcat.apache.org/download-90.cgi
 
 The zip files can be downloaded in download page.
 
 SHA-512 can also be viewed in these URLs:
-32-bit: https://www.example.com
-64-bit: https://www.example.net
+32-bit: https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.17/bin/apache-tomcat-9.0.17-windows-x86.zip.sha512
+64-bit: https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.17/bin/apache-tomcat-9.0.17-windows-x64.zip.sha512
