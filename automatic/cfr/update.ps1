@@ -1,8 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'
 
-$root = 'https://www.benf.org/other/cfr/'
-
 function global:au_GetLatest {
+    $root = 'https://www.benf.org/other/cfr/'
     $page = Invoke-WebRequest -Uri $root
     [array]$href = $page.Links | Select-Object -ExpandProperty href | Select-String -Pattern 'cfr-(\d+.\d+).jar'
     $url = $href[0].ToString()
