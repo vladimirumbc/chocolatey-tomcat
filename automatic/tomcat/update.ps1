@@ -16,7 +16,7 @@ function global:au_GetLatest {
     }
 }
 
-function global:au_BeforeUpdate { Get-RemoteFiles -Purge -NoSuffix }
+function global:au_BeforeUpdate { Get-RemoteFiles -Purge -NoSuffix -Algorithm sha512 }
 
 function global:au_SearchReplace {
     $filename32 = Split-Path -Path $Latest.URL32 -Leaf
