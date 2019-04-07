@@ -41,11 +41,9 @@ if (Test-Path -Path $tomcatBase -ErrorAction SilentlyContinue) {
 }
 
 if (Test-ProcessAdminRights) {
-    $ErrorActionPreference = 'Continue'
     &"$tomcatHome\bin\service" install
     Write-Debug "`$? = $?"
     Write-Debug "last exit code = $LastExitCode"
-    $ErrorActionPreference = 'Stop'
 } else {
     Write-Verbose 'Admin right not granted; system service not installed.'
 }
