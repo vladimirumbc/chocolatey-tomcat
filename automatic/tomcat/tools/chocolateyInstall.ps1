@@ -40,12 +40,14 @@ if (Test-Path -Path $tomcatBase -ErrorAction SilentlyContinue) {
     }
 }
 
-if (Test-ProcessAdminRights) {
+if (! (Test-ProcessAdminRights)) {
+    Write-Verbose 'Admin right not granted; system service not installed.'
+} elseif (! (Test-Path -Path env:JAVA_HOME) -or ! (Get-Command -Name javac)) {
+    Write-Warning 'Java not installed; system service not installed.'
+} else {
     &"$tomcatHome\bin\service" install
     Write-Debug "`$? = $?"
     Write-Debug "last exit code = $LastExitCode"
-} else {
-    Write-Verbose 'Admin right not granted; system service not installed.'
 }
 
 if (Split-Path -Path $toolsDir -Parent | Join-Path -ChildPath options.xml |Test-Path) {

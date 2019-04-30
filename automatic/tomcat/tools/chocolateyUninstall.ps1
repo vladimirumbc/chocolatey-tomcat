@@ -6,7 +6,7 @@ $serviceBat = Split-Path -parent $MyInvocation.MyCommand.Definition |
     Join-Path -ChildPath bin |
     Join-Path -ChildPath service
 
-&$serviceBat remove
+Start-Process -FilePath $serviceBat -ArgumentList remove -Wait -NoNewWindow
 Write-Debug "`$? = $?"
 Write-Debug "last exit code = $LastExitCode"
 

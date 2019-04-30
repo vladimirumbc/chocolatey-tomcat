@@ -25,6 +25,10 @@
     <summary>Application Server. Windows 32 and 64 bit.</summary>
     <description>Tomcat is a Application Server. It is possible to run Web application ARchive (WAR) files using Tomcat. Apache Tomcat requires a JDK in order to run.
 
+### Prerequisite
+* JDK (Java Development Kit) is required. It can be any JDK compatible with Oracle JDK 8. It was not listed as dependency, in order to support different variations of JDK.
+* Environment variable `JAVA_HOME` needs to be set to a JDK path. Many JDK installers already do this for users.
+
 ### Usage
 After installation, configuration and application data are installed in a folder named `Tomcat9` (or the correct major version), which locates in `%ProgramData%` (or `%LocalAppData%` when admin right is not granted). The folder is supposed to be managed by user (site manager), and it will not be touched when this package gets upgraded or uninstalled.
 
@@ -34,10 +38,6 @@ If admin right is granted, a [service](https://en.wikipedia.org/wiki/Windows_ser
 Previous versions (8.0 to 8.5.12, and 7.0 to 7.0.69) of this package were maintained by `skyguy94` (Ritch Melton), which support customizing installation location and service name. They are no longer supported. Please check your `options.xml` to find your old customization.</description>
     <releaseNotes>https://tomcat.apache.org/tomcat-9.0-doc/changelog.html</releaseNotes>
     <!-- =============================== -->      
-
-    <dependencies>
-      <dependency id="jdk8" />
-    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
