@@ -6,9 +6,10 @@ function global:au_GetLatest {
         Headers = @{ Accept = 'application/vnd.github.v3+json' }
     }
     $latest = Invoke-RestMethod @option
-    $zip = $latest.assets | Where-Object { $_.name.EndsWith('.zip') }
     $latest.tag_name -match 'v(\d+\.\d+\.\d+)'
-    @{ Version = $Matches[1]; Url = $zip.browser_download_url }
+    $version = $Matches[1]
+    $zip = $latest.assets | Where-Object { $_.name -eq "jadx-$version.zip" }
+    @{ Version = $version; Url = $zip.browser_download_url }
 }
 
 function global:au_SearchReplace {
