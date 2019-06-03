@@ -9,7 +9,7 @@ $Options = [ordered]@{
 
     Report = @{
         Type = 'markdown'                                   #Report type: markdown or text
-        Path = "$PSScriptRoot\Update-Report.md"             #Path where to save the report
+        Path = "$PSScriptRoot\Update-Report.md"         #Path where to save the report
         Params = @{                                         #Report parameters:
             Github_UserRepo = $Env:github_user_repo         #  Markdown: shows user info in upper right corner
             NoAppVeyor  = $false                            #  Markdown: do not show AppVeyor build shield
@@ -26,23 +26,21 @@ $Options = [ordered]@{
         Path = "$PSScriptRoot\Update-History.md"            #Path where to save history
     }
 
-    RunInfo = @{
-        Exclude = 'password', 'apikey'                      #Option keys which contain those words will be removed
-        Path    = "$PSScriptRoot\update_info.xml"           #Path where to save the run info
-    }
-
     Gist = if ($Env:gist_id) { @{
         Id     = $Env:gist_id                               #Your gist id; leave empty for new private or anonymous gist
         ApiKey = $Env:github_api_key                        #Your github api key - if empty anoymous gist is created
-        Path   = "$PSScriptRoot\Update-Report.md",
-                 "$PSScriptRoot\Update-History.md",
-                 "$PSScriptRoot\update_info.xml"            #List of files to add to the gist
+        Path   = "$PSScriptRoot\Update-Report.md", "$PSScriptRoot\Update-History.md"       #List of files to add to the gist
     } } else {}
 
     Git = if ($Env:github_api_key) { @{
         User     = ''                                       #Git username, leave empty if github api key is used
         Password = $Env:github_api_key                      #Password if username is not empty, otherwise api key
     } } else {}
+
+    RunInfo = @{
+        Exclude = 'password', 'apikey'                      #Option keys which contain those words will be removed
+        Path    = "$PSScriptRoot\update_info.xml"           #Path where to save the run info
+    }
 
     Mail = if ($Env:mail_user) {
             @{
