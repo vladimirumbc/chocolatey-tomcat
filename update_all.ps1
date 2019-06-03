@@ -26,6 +26,11 @@ $Options = [ordered]@{
         Path = "$PSScriptRoot\Update-History.md"            #Path where to save history
     }
 
+    RunInfo = @{
+        Exclude = 'password', 'apikey'                      #Option keys which contain those words will be removed
+        Path    = "$PSScriptRoot\update_info.xml"           #Path where to save the run info
+    }
+
     Gist = if ($Env:gist_id) { @{
         Id     = $Env:gist_id                               #Your gist id; leave empty for new private or anonymous gist
         ApiKey = $Env:github_api_key                        #Your github api key - if empty anoymous gist is created
@@ -38,11 +43,6 @@ $Options = [ordered]@{
         User     = ''                                       #Git username, leave empty if github api key is used
         Password = $Env:github_api_key                      #Password if username is not empty, otherwise api key
     } } else {}
-
-    RunInfo = @{
-        Exclude = 'password', 'apikey'                      #Option keys which contain those words will be removed
-        Path    = "$PSScriptRoot\update_info.xml"           #Path where to save the run info
-    }
 
     Mail = if ($Env:mail_user) {
             @{
