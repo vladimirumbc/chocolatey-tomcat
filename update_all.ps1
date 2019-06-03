@@ -9,7 +9,7 @@ $Options = [ordered]@{
 
     Report = @{
         Type = 'markdown'                                   #Report type: markdown or text
-        Path = "$PSScriptRoot\Update-Report.md"         #Path where to save the report
+        Path = "$PSScriptRoot\Update-Report.md"             #Path where to save the report
         Params = @{                                         #Report parameters:
             Github_UserRepo = $Env:github_user_repo         #  Markdown: shows user info in upper right corner
             NoAppVeyor  = $false                            #  Markdown: do not show AppVeyor build shield
@@ -29,7 +29,9 @@ $Options = [ordered]@{
     Gist = if ($Env:gist_id) { @{
         Id     = $Env:gist_id                               #Your gist id; leave empty for new private or anonymous gist
         ApiKey = $Env:github_api_key                        #Your github api key - if empty anoymous gist is created
-        Path   = "$PSScriptRoot\Update-Report.md", "$PSScriptRoot\Update-History.md"       #List of files to add to the gist
+        Path   = "$PSScriptRoot\Update-Report.md",
+                 "$PSScriptRoot\Update-History.md",
+                 "$PSScriptRoot\update_info.xml"            #List of files to add to the gist
     } } else {}
 
     Git = if ($Env:github_api_key) { @{
