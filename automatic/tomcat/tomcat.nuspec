@@ -21,7 +21,7 @@
     <docsUrl>https://tomcat.apache.org/tomcat-9.0-doc/</docsUrl>
     <mailingListUrl>https://tomcat.apache.org/lists.html</mailingListUrl>
     <bugTrackerUrl>https://bz.apache.org/bugzilla/</bugTrackerUrl>
-    <tags>tomcat application server apache jsf jsp jdk8</tags>
+    <tags>tomcat application server apache jsf jsp jdk8 portable</tags>
     <summary>Application Server. Windows 32 and 64 bit.</summary>
     <description>Tomcat is a Application Server. It is possible to run Web application ARchive (WAR) files using Tomcat. Apache Tomcat requires a JDK in order to run.
 
