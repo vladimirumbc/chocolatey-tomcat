@@ -17,7 +17,7 @@
     <copyright>Copyright © 1999-2019, The Apache Software Foundation</copyright>
     <licenseUrl>https://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <projectSourceUrl>https://svn.apache.org/viewvc/tomcat/</projectSourceUrl>
+    <projectSourceUrl>https://github.com/apache/tomcat</projectSourceUrl>
     <docsUrl>https://tomcat.apache.org/tomcat-9.0-doc/</docsUrl>
     <mailingListUrl>https://tomcat.apache.org/lists.html</mailingListUrl>
     <bugTrackerUrl>https://bz.apache.org/bugzilla/</bugTrackerUrl>
