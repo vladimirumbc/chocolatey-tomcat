@@ -23,8 +23,8 @@ Remove-Item -Path $tempFile
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   unzipLocation = $toolsDir
-  url           = 'https://github.com/skylot/jadx/releases/download/v0.9.0/jadx-0.9.0.zip'
-  checksum      = 'd2f49df069df8bffc20651b182c5eaa483a7d12abc00b2099bfd836fdd2bd103'
+  url           = 'https://github.com/skylot/jadx/releases/download/v1.0.0/jadx-1.0.0.zip'
+  checksum      = '72e955e512301a713f9533f7bb24fe08d23b481dac2de38815a89854758891dd'
   checksumType  = 'sha256'
 }
 
