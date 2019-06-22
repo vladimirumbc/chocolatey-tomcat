@@ -13,7 +13,7 @@
     <title>Apache Tomcat</title>
     <authors>Apache Software Foundation</authors>
     <projectUrl>https://tomcat.apache.org</projectUrl>
-    <iconUrl>http://raw.githubusercontent.com/FranklinYu/chocolatey-packages/b2166bf5b07c8a14ca776d25e20eff0ba07eb50c/icons/tomcat.png</iconUrl>
+    <iconUrl>https://cdn.statically.io/gh/FranklinYu/chocolatey-packages/b2166bf5b07c8a14ca776d25e20eff0ba07eb50c/icons/tomcat.png</iconUrl>
     <copyright>Copyright © 1999-2019, The Apache Software Foundation</copyright>
     <licenseUrl>https://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
