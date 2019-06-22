@@ -5,7 +5,7 @@
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>classyshark</id>
     <version>8.2</version>
-    <packageSourceUrl>https://github.com/FranklinYu/chocolatey-packages/tree/master/automatic</packageSourceUrl>
+    <packageSourceUrl>https://github.com/FranklinYu/chocolatey-packages/tree/master/automatic/classyshark/</packageSourceUrl>
     <owners>Franklin Yu</owners>
     <!-- ============================== -->
 
