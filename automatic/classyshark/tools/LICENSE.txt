@@ -1,4 +1,4 @@
-﻿From: https://github.com/google/android-classyshark/blob/master/LICENSE.txt
+From: https://github.com/google/android-classyshark/blob/master/LICENSE.txt
 --------------------------------------------------------------------------------
 
                                  Apache License
