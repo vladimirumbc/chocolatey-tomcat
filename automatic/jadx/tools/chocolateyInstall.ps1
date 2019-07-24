@@ -2,10 +2,8 @@
 $toolsDir = Split-Path -parent $MyInvocation.MyCommand.Definition
 
 # polyfill
-if (! (Get-Command -Name New-TemporaryFile -ErrorAction SilentlyContinue))
-{
-    function New-TemporaryFile
-    {
+if (! (Get-Command -Name New-TemporaryFile -ErrorAction SilentlyContinue)) {
+    function New-TemporaryFile {
         return [IO.Path]::GetTempFileName()
     }
 }
@@ -13,22 +11,19 @@ if (! (Get-Command -Name New-TemporaryFile -ErrorAction SilentlyContinue))
 # check Java 64-bit
 $tempFile = New-TemporaryFile
 Start-Process -FilePath 'java.exe' -RedirectStandardError $tempFile -ArgumentList '-version' -NoNewWindow -Wait
-if (! (Select-String -Path $tempFile -Pattern 64-Bit))
-{
+if (! (Select-String -Path $tempFile -Pattern 64-Bit)) {
     Remove-Item -Path $tempFile
     throw 'require 64-bit Java'
 }
 Remove-Item -Path $tempFile
 
+$filename = "jadx-1.0.0.zip"
 $packageArgs = @{
-  packageName   = $env:ChocolateyPackageName
-  unzipLocation = $toolsDir
-  url           = 'https://github.com/skylot/jadx/releases/download/v1.0.0/jadx-1.0.0.zip'
-  checksum      = '72e955e512301a713f9533f7bb24fe08d23b481dac2de38815a89854758891dd'
-  checksumType  = 'sha256'
+    packageName = $env:ChocolateyPackageName
+    destination = $toolsDir
+    fileFullPath64 = Join-Path -Path $toolsDir -ChildPath $filename
 }
-
-Install-ChocolateyZipPackage @packageArgs
+Get-ChocolateyUnzip @packageArgs
 
 $binPath = Join-Path -Path $toolsDir -ChildPath bin
 $jadx = Join-Path -Path $binPath -ChildPath jadx.bat
@@ -36,12 +31,9 @@ $jadxGui = Join-Path -Path $binPath -ChildPath jadx-gui.bat
 Install-BinFile -Name jadx -Path $jadx
 Install-BinFile -Name jadx-gui -Path $jadxGui
 
-if (Test-ProcessAdminRights)
-{
+if (Test-ProcessAdminRights) {
     $specialFolder = [Environment+SpecialFolder]::CommonPrograms
-}
-else
-{
+} else {
     $specialFolder = [Environment+SpecialFolder]::Programs
 }
 $linkPath = [Environment]::GetFolderPath($specialFolder) | Join-Path -ChildPath 'JADX GUI.lnk'

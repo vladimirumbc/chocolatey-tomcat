@@ -9,14 +9,18 @@ function global:au_GetLatest {
     $latest.tag_name -match 'v(\d+\.\d+\.\d+)'
     $version = $Matches[1]
     $zip = $latest.assets | Where-Object { $_.name -eq "jadx-$version.zip" }
-    @{ Version = $version; Url = $zip.browser_download_url }
+    @{ Version = $version; URL64 = $zip.browser_download_url; Filename64 = $zip.name }
 }
+
+function global:au_BeforeUpdate { Get-RemoteFiles -Purge -NoSuffix }
 
 function global:au_SearchReplace {
     @{
         'tools\chocolateyInstall.ps1' = @{
-            '(^\s*url\s*)=.*' = "`$1= '{0}'" -f $Latest.Url
-            '(^\s*checksum\s*)=.*' = "`$1= '{0}'" -f $Latest.Checksum32
+            '[$]filename =.*' = '$filename = "{0}"' -f $Filename64
+        }
+        'tools\VERIFICATION.txt' = @{
+            'SHA-256:.*' = 'SHA-256: {0}' -f $Latest.Checksum64
         }
     }
 }
