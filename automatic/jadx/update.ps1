@@ -17,7 +17,7 @@ function global:au_BeforeUpdate { Get-RemoteFiles -Purge -NoSuffix }
 function global:au_SearchReplace {
     @{
         'tools\chocolateyInstall.ps1' = @{
-            '[$]filename =.*' = '$filename = "{0}"' -f $Filename64
+            '[$]filename =.*' = '$filename = "{0}"' -f $Latest.Filename64
         }
         'tools\VERIFICATION.txt' = @{
             'SHA-256:.*' = 'SHA-256: {0}' -f $Latest.Checksum64
@@ -25,4 +25,4 @@ function global:au_SearchReplace {
     }
 }
 
-Update-Package
+Update-Package -ChecksumFor none
