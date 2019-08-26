@@ -17,7 +17,7 @@ if (Test-ProcessAdminRights) {
 }
 $envArgs = @{
     variableName = 'JAVA_HOME'
-    variableValue = "$toolsDir\jdk-$env:ChocolateyPackageVersion"
+    variableValue = "$toolsDir\jdk-12"
     variableType = $pathType
 }
 Install-ChocolateyEnvironmentVariable @envArgs

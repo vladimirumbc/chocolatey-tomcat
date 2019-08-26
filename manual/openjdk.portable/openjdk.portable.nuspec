@@ -4,7 +4,7 @@
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>openjdk.portable</id>
-    <version>12</version>
+    <version>12.0</version>
     <packageSourceUrl>https://github.com/FranklinYu/chocolatey-packages/tree/master/manual/openjdk.portable</packageSourceUrl>
     <owners>Franklin Yu</owners>
     <!-- ============================== -->
