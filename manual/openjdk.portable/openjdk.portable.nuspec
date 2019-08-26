@@ -4,7 +4,7 @@
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>openjdk.portable</id>
-    <version>11.0.2</version>
+    <version>12</version>
     <packageSourceUrl>https://github.com/FranklinYu/chocolatey-packages/tree/master/manual/openjdk.portable</packageSourceUrl>
     <owners>Franklin Yu</owners>
     <!-- ============================== -->
@@ -18,13 +18,13 @@
     <licenseUrl>https://openjdk.java.net/legal/</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <projectSourceUrl>https://hg.openjdk.java.net</projectSourceUrl>
-    <docsUrl>https://docs.oracle.com/en/java/javase/11/</docsUrl>
+    <docsUrl>https://docs.oracle.com/en/java/javase/12/</docsUrl>
     <mailingListUrl>https://mail.openjdk.java.net</mailingListUrl>
     <bugTrackerUrl>https://bugs.openjdk.java.net</bugTrackerUrl>
     <tags>OpenJDK Java JVM JDK JRE J2SE compiler SDK Oracle</tags>
     <summary>OpenJDK is an open source Java Development Kit provided by Oracle Corporation.</summary>
     <description>OpenJDK is a free and open-source implementation of the Java Platform, Standard Edition.</description>
-    <releaseNotes>https://www.oracle.com/technetwork/java/javase/11u-relnotes-5093844.html</releaseNotes>
+    <releaseNotes>https://www.oracle.com/technetwork/java/javase/12-relnote-issues-5211422.html</releaseNotes>
     <!-- =============================== -->      
   </metadata>
   <files>
