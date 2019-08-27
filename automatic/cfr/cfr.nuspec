@@ -26,6 +26,11 @@ To use, simply run with the class name you want to decompile (either as a path t
 See project page or [FAQ](http://www.benf.org/other/cfr/faq.html) for more details.
     </description>
     <!-- =============================== -->
+
+    <dependencies>
+      <dependency id="javaruntime" />
+    </dependencies>
+
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
