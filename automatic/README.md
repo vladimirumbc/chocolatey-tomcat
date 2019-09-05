@@ -17,7 +17,9 @@ To get the packages that implement AU updater run `Get-AUPackages` or `lsau` in 
 Packages:
   - [`cfr`](https://chocolatey.org/packages/cfr)
   - [`Charles`](https://chocolatey.org/packages/Charles)
+  - [`classyshark`](https://chocolatey.org/packages/classyshark)
   - [`jadx`](https://chocolatey.org/packages/jadx)
   - [`keystore-explorer.portable`](https://chocolatey.org/packages/keystore-explorer.portable)
   - [`thumbs-viewer`](https://chocolatey.org/packages/thumbs-viewer)
+  - [`tomcat`](https://chocolatey.org/packages/tomcat)
   - [`typora`](https://chocolatey.org/packages/typora)
