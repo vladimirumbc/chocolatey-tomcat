@@ -2,12 +2,12 @@
 
 $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
-  url            = 'https://typora.io/windows/typora-update-ia32-1130.exe'
-  url64bit       = 'https://typora.io/windows/typora-update-x64-1130.exe'
+  url            = 'https://typora.io/windows/typora-update-ia32-1201.exe'
+  url64bit       = 'https://typora.io/windows/typora-update-x64-1201.exe'
 
-  checksum       = 'a7925b92ba055599d29a0fc21cd9e864e49150af2a7867092285b92188695cce'
+  checksum       = '82cb3252a12517737712ef5ef4b6a3db8d8c5458ab36b187696577568d09e1ea'
   checksumType   = 'sha256'
-  checksum64     = 'a0524e232ca8c274ebb87d9df020d31617551d74955f27dc3a4782dd31d05177'
+  checksum64     = 'd5ef9567401afc1d2d6fad1194a4e0ba375298133cc67b3bdc15cf10f4a797d5'
   checksumType64 = 'sha256'
 
   validExitCodes = @(0, 3010, 1641)
