@@ -3,7 +3,7 @@ Verification is intended to assist the Chocolatey moderators and community
 in verifying that this package's contents are trustworthy.
 
 Homepage: https://www.benf.org/other/cfr/
-SHA-256: 1407F91FE7F94FF700CC1C8D546986A3FC2554273F07BAE664BD58B0D85FD012
+SHA-256: DB683B5B3BC2C20FD2FABCC9D749D5B8BCBBA736F334E5AC2092173242967ACA
 URL of 'LICENSE.txt': https://www.benf.org/other/cfr/license.html
 
 The jar file can be downloaded in homepage.
