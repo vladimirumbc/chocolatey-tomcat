@@ -1,19 +1,75 @@
 ﻿$ErrorActionPreference = 'Stop'
 
+$releaseTagsUrl = 'https://api.github.com/repos/apache/tomcat/git/refs/tags'
+$baseUrl = 'https://archive.apache.org/dist/tomcat'
+$preReleaseSuffix = '-M\d+$'
+$UrlFormat = "{0}/tomcat-{1}/v{2}/bin/apache-tomcat-{2}-windows-{3}.zip{4}"
+
 function global:au_GetLatest {
-    $tags = Invoke-RestMethod -Uri https://api.github.com/repos/apache/tomcat/git/refs/tags
-    $version = $tags[-1].ref.Substring(10) # last tag; remove prefix "refs/tags/"
-    $checksum32Url = "https://archive.apache.org/dist/tomcat/tomcat-9/v$version/bin/apache-tomcat-$version-windows-x86.zip.sha512"
-    $checksum64Url = "https://archive.apache.org/dist/tomcat/tomcat-9/v$version/bin/apache-tomcat-$version-windows-x64.zip.sha512"
-    @{
-        Version = $version
-        URL32 = "https://archive.apache.org/dist/tomcat/tomcat-9/v$version/bin/apache-tomcat-$version-windows-x86.zip"
-        Checksum32Url = $checksum32Url
-        ChecksumType32 = 'sha512'
-        URL64 = "https://archive.apache.org/dist/tomcat/tomcat-9/v$version/bin/apache-tomcat-$version-windows-x64.zip"
-        Checksum64Url = $checksum64Url
-        ChecksumType64 = 'sha512'
+    $tags = Invoke-RestMethod -Uri $releaseTagsUrl
+    $i = 0
+    $versionValid = $false
+    $versionInfo = @{}
+
+    # Find the most up to date version that is not a pre-release version
+    do {
+        $i++
+        $tagNum = $i * -1
+        $version = $tags[$tagNum].ref.Substring(10) # last tag; remove prefix "refs/tags/"
+        $majorVersion = $version.Split(".") | Select-Object -First 1
+        $isPreRelease = $version -Match $preReleaseSuffix
+
+        # Only check the version if it is not a pre-release
+        If (-Not $isPreRelease) {
+            $checksum32Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x86', '.sha512'
+            $checksum64Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x64', '.sha512'
+            $zip32Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x86', ''
+            $zip64Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x64', ''
+
+            $versionValid = au_TestVersionExists -checksumUrl $checksum32Url
+
+            If ($versionValid) {
+                $versionInfo = @{
+                    Version = $version
+                    URL32 = $zip32Url
+                    Checksum32Url = $checksum32Url
+                    ChecksumType32 = 'sha512'
+                    URL64 = $zip64Url
+                    Checksum64Url = $checksum64Url
+                    ChecksumType64 = 'sha512'
+                }
+            }
+        }
+    } while (-Not $versionValid)
+
+    return $versionInfo
+}
+
+function au_TestVersionExists($checksumUrl) {
+    $validVersion = $false
+
+    try {
+        # First we create the request.
+        $HTTP_Request = [System.Net.WebRequest]::Create($checksumUrl)
+
+        # We then get a response from the site.
+        $HTTP_Response = $HTTP_Request.GetResponse()
+
+        # We then get the HTTP code as an integer.
+        $HTTP_Status = [int]$HTTP_Response.StatusCode
+
+        If ($HTTP_Status -eq 200) {
+            $validVersion = $true
+        }
+
+        # Finally, we clean up the http request by closing it.
+        If ($null -eq $HTTP_Response) { } 
+        Else { $HTTP_Response.Close() }
+    } catch {
+        $validVersion = $false
     }
+
+    return $validVersion
 }
 
 function global:au_BeforeUpdate { Get-RemoteFiles -Purge -NoSuffix -Algorithm sha512 }
