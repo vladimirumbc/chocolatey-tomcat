@@ -2,7 +2,7 @@
 
 This project was created from [chocolatey/chocolatey-packages-template](https://github.com/chocolatey/chocolatey-packages-template).
 
-[![](https://ci.appveyor.com/api/projects/status/github/FranklinYu/chocolatey-packages?svg=true)](https://ci.appveyor.com/project/FranklinYu/chocolatey-packages)
+[![](https://ci.appveyor.com/api/projects/status/github/tomflynn83/chocolatey-packages?svg=true)](https://ci.appveyor.com/project/FranklinYu/chocolatey-packages)
 [Update status](https://gist.github.com/FranklinYu/7d4536b29dacffbc807aaa67914180c6)
 
 This contains Chocolatey packages, both manually and automatically maintained. You can use AU (Automatic Updater), currently supported in the Chocolatey community, for automatic packaging.

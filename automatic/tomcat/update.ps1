@@ -7,6 +7,8 @@ $UrlFormat = "{0}/tomcat-{1}/v{2}/bin/apache-tomcat-{2}-windows-{3}.zip{4}"
 
 function global:au_GetLatest {
     $tags = Invoke-RestMethod -Uri $releaseTagsUrl
+    # Strip out any pre-release versions
+    $tags = $tags.where{$_.ref -NotMatch $preReleaseSuffix}
     $i = 0
     $versionValid = $false
     $versionInfo = @{}
@@ -17,27 +19,25 @@ function global:au_GetLatest {
         $tagNum = $i * -1
         $version = $tags[$tagNum].ref.Substring(10) # last tag; remove prefix "refs/tags/"
         $majorVersion = $version.Split(".") | Select-Object -First 1
-        $isPreRelease = $version -Match $preReleaseSuffix
 
-        # Only check the version if it is not a pre-release
-        If (-Not $isPreRelease) {
-            $checksum32Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x86', '.sha512'
-            $checksum64Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x64', '.sha512'
-            $zip32Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x86', ''
-            $zip64Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x64', ''
+        $checksum32Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x86', '.sha512'
+        $checksum64Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x64', '.sha512'
+        $zip32Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x86', ''
+        $zip64Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x64', ''
 
-            $versionValid = au_TestVersionExists -checksumUrl $checksum32Url
+        # Ensure that the version has biniaries
+        $versionValid = au_TestVersionExists -checksumUrl $checksum32Url
 
-            If ($versionValid) {
-                $versionInfo = @{
-                    Version = $version
-                    URL32 = $zip32Url
-                    Checksum32Url = $checksum32Url
-                    ChecksumType32 = 'sha512'
-                    URL64 = $zip64Url
-                    Checksum64Url = $checksum64Url
-                    ChecksumType64 = 'sha512'
-                }
+        If ($versionValid) {
+            $versionInfo = @{
+                Version = $version
+                MajorVersion = $majorVersion
+                URL32 = $zip32Url
+                Checksum32Url = $checksum32Url
+                ChecksumType32 = 'sha512'
+                URL64 = $zip64Url
+                Checksum64Url = $checksum64Url
+                ChecksumType64 = 'sha512'
             }
         }
     } while (-Not $versionValid)
@@ -78,6 +78,7 @@ function global:au_SearchReplace {
     $filename32 = Split-Path -Path $Latest.URL32 -Leaf
     $filename64 = Split-Path -Path $Latest.URL64 -Leaf
     $folderName = "apache-tomcat-{0}" -f $Latest.Version
+    $majorVersion = $Latest.MajorVersion
     @{
         'tools\VERIFICATION.txt' = @{
             '^SHA-512 of 32-bit:.*' = 'SHA-512 of 32-bit: {0}' -f $Latest.Checksum32
@@ -89,6 +90,7 @@ function global:au_SearchReplace {
             '[$]filename32 =.*' = '$filename32 = "{0}"' -f $filename32
             '[$]filename64 =.*' = '$filename64 = "{0}"' -f $filename64
             '[$]zipContentFolderName =.*'= '$zipContentFolderName = "{0}"' -f $folderName
+            '[$]majorVersion =.*'= '$majorVersion = "{0}"' -f $majorVersion
         }
         'tools\chocolateyUninstall.ps1' = @{
             '[$]zipContentFolderName =.*'= '$zipContentFolderName = "{0}"' -f $folderName

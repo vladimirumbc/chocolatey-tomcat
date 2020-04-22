@@ -59,7 +59,7 @@ $Options = [ordered]@{
     ForcedPackages = $ForcedPackages
     BeforeEach = {
         param($PackageName, $Options )
-        $p = $Options.ForcedPackages | ? { $_ -match "^${PackageName}(?:\:(.+))*$" }
+        $p = $Options.ForcedPackages | Where-Object { $_ -match "^${PackageName}(?:\:(.+))*$" }
         if (!$p) { return }
 
         $global:au_Force   = $true
