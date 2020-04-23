@@ -78,7 +78,6 @@ function global:au_SearchReplace {
     $filename32 = Split-Path -Path $Latest.URL32 -Leaf
     $filename64 = Split-Path -Path $Latest.URL64 -Leaf
     $folderName = "apache-tomcat-{0}" -f $Latest.Version
-    $majorVersion = $Latest.MajorVersion
     @{
         'tools\VERIFICATION.txt' = @{
             '^SHA-512 of 32-bit:.*' = 'SHA-512 of 32-bit: {0}' -f $Latest.Checksum32
@@ -90,7 +89,6 @@ function global:au_SearchReplace {
             '[$]filename32 =.*' = '$filename32 = "{0}"' -f $filename32
             '[$]filename64 =.*' = '$filename64 = "{0}"' -f $filename64
             '[$]zipContentFolderName =.*'= '$zipContentFolderName = "{0}"' -f $folderName
-            '[$]majorVersion =.*'= '$majorVersion = "{0}"' -f $majorVersion
         }
         'tools\chocolateyUninstall.ps1' = @{
             '[$]zipContentFolderName =.*'= '$zipContentFolderName = "{0}"' -f $folderName

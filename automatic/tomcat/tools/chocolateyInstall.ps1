@@ -4,7 +4,6 @@ $toolsDir = Split-Path -parent $MyInvocation.MyCommand.Definition
 $filename32 = "apache-tomcat-9.0.34-windows-x86.zip"
 $filename64 = "apache-tomcat-9.0.34-windows-x64.zip"
 $zipContentFolderName = "apache-tomcat-9.0.34"
-$majorVersion = "9"
 
 $packageArgs = @{
     packageName = $env:ChocolateyPackageName
@@ -46,13 +45,6 @@ if (! (Test-ProcessAdminRights)) {
 } elseif (! (Test-Path -Path env:JAVA_HOME) -or ! (Get-Command -Name javac)) {
     Write-Warning 'Java not installed; system service not installed.'
 } else {
-    $service = Get-Service | Where-Object{$_.Name -Like "*Tomcat*$majorVersion*"}
-    if ($service) {
-        &"$tomcatHome\bin\service" uninstall
-        Write-Debug "`$? = $?"
-        Write-Debug "last exit code = $LastExitCode"
-    }
-
     &"$tomcatHome\bin\service" install
     Write-Debug "`$? = $?"
     Write-Debug "last exit code = $LastExitCode"
