@@ -25,19 +25,21 @@ function global:au_GetLatest {
         $zip32Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x86', ''
         $zip64Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x64', ''
 
-        # Ensure that the version has biniaries
-        $versionValid = au_TestVersionExists -checksumUrl $checksum32Url
+        If ($majorVersion -eq 9) {
+            # Ensure that the version has biniaries
+            $versionValid = au_TestVersionExists -checksumUrl $checksum32Url
 
-        If ($versionValid) {
-            $versionInfo = @{
-                Version = $version
-                MajorVersion = $majorVersion
-                URL32 = $zip32Url
-                Checksum32Url = $checksum32Url
-                ChecksumType32 = 'sha512'
-                URL64 = $zip64Url
-                Checksum64Url = $checksum64Url
-                ChecksumType64 = 'sha512'
+            If ($versionValid) {
+                $versionInfo = @{
+                    Version = $version
+                    MajorVersion = $majorVersion
+                    URL32 = $zip32Url
+                    Checksum32Url = $checksum32Url
+                    ChecksumType32 = 'sha512'
+                    URL64 = $zip64Url
+                    Checksum64Url = $checksum64Url
+                    ChecksumType64 = 'sha512'
+                }
             }
         }
     } while (-Not $versionValid)
