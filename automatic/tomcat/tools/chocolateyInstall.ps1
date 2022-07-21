@@ -1,9 +1,9 @@
 ﻿$ErrorActionPreference = 'Stop'
 $toolsDir = Split-Path -parent $MyInvocation.MyCommand.Definition
 
-$filename32 = "apache-tomcat-9.0.58-windows-x86.zip"
-$filename64 = "apache-tomcat-9.0.58-windows-x64.zip"
-$zipContentFolderName = "apache-tomcat-9.0.58"
+$filename32 = "apache-tomcat-9.0.65-windows-x86.zip"
+$filename64 = "apache-tomcat-9.0.65-windows-x64.zip"
+$zipContentFolderName = "apache-tomcat-9.0.65"
 
 $packageArgs = @{
     packageName = $env:ChocolateyPackageName
@@ -45,6 +45,11 @@ if (! (Test-ProcessAdminRights)) {
 } elseif (! (Test-Path -Path env:JAVA_HOME) -or ! (Get-Command -Name javac)) {
     Write-Warning 'Java not installed; system service not installed.'
 } else {
+    $service = Get-Service -Name Tomcat9 -ErrorAction SilentlyContinue
+    if ($service.Length -gt 0) {
+        &"$tomcatHome\bin\service" uninstall
+    }
+
     &"$tomcatHome\bin\service" install
     Write-Debug "`$? = $?"
     Write-Debug "last exit code = $LastExitCode"
