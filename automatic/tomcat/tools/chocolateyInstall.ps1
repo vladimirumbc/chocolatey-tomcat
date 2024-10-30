@@ -3,13 +3,18 @@ $toolsDir = Split-Path -parent $MyInvocation.MyCommand.Definition
 $serviceName = 'Tomcat10'
 
 if (! (Test-ProcessAdminRights)) {
+    Write-Verbose "Testing admin rights."
     Write-Error 'Admin right not granted; system service not installed.'
-} elseif (! (Test-Path -Path env:JAVA_HOME) -or ! (Get-Command -Name javac)) {
+} elseif (! (Test-Path -Path $env:JAVA_HOME) -or ! (Get-Command -Name javac)) {
+    Write-Verbose "Testing Java installation."
     Write-Error 'Java not installed; system service not installed.'
+    
 }
 
+Write-Verbose "Getting parameters"
 $pp = Get-PackageParameters
 
+Write-Verbose "Setting Tomcat Home"
 $tomcatHome = if ($pp.Catalina_Home) {$pp.Catalina_Home} else {Join-Base -Path $toolsDir -ChildPath "apache-tomcat-10"}
 
 $packageArgs = @{
@@ -19,6 +24,7 @@ $packageArgs = @{
     SpecificFolder = 'apache-tomcat-10.1.31'
 }
 
+Write-Verbose "Installing package"
 Install-ChocolateyZipPackage @packageArgs
 
 $tomcatBase = if ($pp.Catalina_Base) {$pp.Catalina_Base} else {Join-Path -Path $env:ProgramData -ChildPath 'apache-tomcat-10'}
