@@ -1,31 +1,29 @@
 ﻿$ErrorActionPreference = 'Stop'
 $toolsDir = Split-Path -parent $MyInvocation.MyCommand.Definition
+$serviceName = 'Tomcat10'
 
-$filename32 = "apache-tomcat-9.0.95-windows-x86.zip"
-$filename64 = "apache-tomcat-9.0.95-windows-x64.zip"
-$zipContentFolderName = "apache-tomcat-9.0.95"
+if (! (Test-ProcessAdminRights)) {
+    Write-Error 'Admin right not granted; system service not installed.'
+} elseif (! (Test-Path -Path env:JAVA_HOME) -or ! (Get-Command -Name javac)) {
+    Write-Error 'Java not installed; system service not installed.'
+}
+
+$pp = Get-PackageParameters
+
+$tomcatHome = if ($pp.Catalina_Home) {$pp.Catalina_Home} else {Join-Base -Path $toolsDir -ChildPath "apache-tomcat-10"}
 
 $packageArgs = @{
-    packageName = $env:ChocolateyPackageName
-    destination = $toolsDir
-    fileFullPath = Join-Path -Path $toolsDir -ChildPath $filename32
-    fileFullPath64 = Join-Path -Path $toolsDir -ChildPath $filename64
-}
-Get-ChocolateyUnzip @packageArgs
-
-$tomcatHome = Join-Path -Path $toolsDir -ChildPath $zipContentFolderName
-
-if (Test-ProcessAdminRights) {
-    $dataDir = $env:ProgramData
-    $scope = 'Machine'
-} else {
-    $dataDir = $env:LocalAppData
-    $scope = 'User'
+    PackageName = $env:ChocolateyPackageName
+    Url64 = 'https://choco.ad.umbc.edu/artifacts/tomcat10/10.1.31/apache-tomcat-10.1.31-windows-x64.zip'
+    UnzipLocation = $tomcatHome
+    SpecificFolder = 'apache-tomcat-10.1.31'
 }
 
-$tomcatBase = Join-Path -Path $dataDir -ChildPath Tomcat9
-Install-ChocolateyEnvironmentVariable -VariableName CATALINA_BASE -VariableValue $tomcatBase -Scope $scope
-Install-ChocolateyEnvironmentVariable -VariableName CATALINA_HOME -VariableValue $tomcatHome -Scope $scope
+Install-ChocolateyZipPackage @packageArgs
+
+$tomcatBase = if ($pp.Catalina_Base) {$pp.Catalina_Base} else {Join-Path -Path $env:ProgramData -ChildPath 'apache-tomcat-10'}
+Install-ChocolateyEnvironmentVariable -VariableName CATALINA_BASE -VariableValue $tomcatBase -Scope 'Machine'
+Install-ChocolateyEnvironmentVariable -VariableName CATALINA_HOME -VariableValue $tomcatHome -Scope 'Machine'
 
 if (Test-Path -Path $tomcatBase -ErrorAction SilentlyContinue) {
     Write-Debug "using configuration at $tomcatBase."
@@ -40,21 +38,16 @@ if (Test-Path -Path $tomcatBase -ErrorAction SilentlyContinue) {
     }
 }
 
-if (! (Test-ProcessAdminRights)) {
-    Write-Verbose 'Admin right not granted; system service not installed.'
-} elseif (! (Test-Path -Path env:JAVA_HOME) -or ! (Get-Command -Name javac)) {
-    Write-Warning 'Java not installed; system service not installed.'
-} else {
-    $service = Get-Service -Name Tomcat9 -ErrorAction SilentlyContinue
-    if ($service.Length -gt 0) {
-        &"$tomcatHome\bin\service" uninstall
-    }
-
-    &"$tomcatHome\bin\service" install
-    Write-Debug "`$? = $?"
-    Write-Debug "last exit code = $LastExitCode"
+$service = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
+if ($service.Length -gt 0) {
+    &"$tomcatHome\bin\service" uninstall
 }
 
-if (Split-Path -Path $toolsDir -Parent | Join-Path -ChildPath options.xml |Test-Path) {
-    Write-Warning 'You are migrating from 8.5.12 or earlier version. Please check package description, or discuss with package maintainer.'
-}
+&"$tomcatHome\bin\service" install
+Write-Debug "`$? = $?"
+Write-Debug "last exit code = $LastExitCode"
+
+$packageArgs['serviceName'] = $serviceName
+$packageArgs['Catalina_Base'] = $tomcatBase
+$optionFile = Split-Path -Path $toolsDir -Parent | Join-Path -ChildPath options.json
+$packageArgs | ConvertTo-Json | Out-File -FilePath $optionFile -Force

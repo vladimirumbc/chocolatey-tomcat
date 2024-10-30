@@ -25,7 +25,7 @@ function global:au_GetLatest {
         $zip32Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x86', ''
         $zip64Url = $UrlFormat -f $baseUrl, $majorVersion, $version, 'x64', ''
 
-        If ($majorVersion -eq 9) {
+        If ($majorVersion -eq 10) {
             # Ensure that the version has biniaries
             $versionValid = au_TestVersionExists -checksumUrl $checksum32Url
 
